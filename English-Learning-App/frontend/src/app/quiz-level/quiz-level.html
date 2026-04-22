@@ -1,0 +1,53 @@
+<div class="level-container">
+
+  <div class="level-header">
+    <h1 class="level-title">Choose your level</h1>
+    <p class="level-subtitle">Take the test and find out how well you speak the language.</p>
+  </div>
+
+  <div class="level-cards">
+
+    <!-- A1 -->
+    <div class="card" (click)="selectLevel('A1')">
+      <div class="level-badge a1">A1</div>
+      <div class="card-title">Beginner</div>
+      <div class="stats">
+        <div class="stat"><span class="stat-val">10</span><span class="stat-key">QUESTIONS</span></div>
+        <div class="stat"><span class="stat-val">I EASY</span><span class="stat-key">COMPLEXITY</span></div>
+      </div>
+      <div class="tags">
+        <p class="card-desc">Basic words and expressions. Ideal if you're just <br>starting to learn a language or want to brush up on<br> the basics..</p>
+      </div>
+      <button class="card-btn">Start test <span>→</span></button>
+    </div>
+
+    <div class="card" (click)="selectLevel('A2')">
+      <div class="recommended">RECCOMENDED</div>
+      <div class="level-badge a2">A2</div>
+      <div class="card-title">Elementary</div>
+      <div class="stats">
+        <div class="stat"><span class="stat-val">15</span><span class="stat-key">QUESTIONS</span></div>
+        <div class="stat"><span class="stat-val">II MIDDLE</span><span class="stat-key">COMPLEXITY</span></div>
+      </div>
+      <div class="tags">
+        <p class="card-desc">Simple dialogues and everyday situations.<br> Suitable for those who already know the basics<br> and want to move on..</p>
+      </div>
+      <button class="card-btn">Start test <span>→</span></button>
+    </div>
+
+    <!-- B1 -->
+    <div class="card" (click)="selectLevel('B1')">
+      <div class="level-badge b1">B1</div>
+      <div class="card-title">Intermediate</div>
+      <div class="stats">
+        <div class="stat"><span class="stat-val">20</span><span class="stat-key">QUESTIONS</span></div>
+        <div class="stat"><span class="stat-val">III HARD</span><span class="stat-key">COMPLEXITY</span></div>
+      </div>
+      <div class="tags">
+        <p class="card-desc">Complex constructions and expanded vocabulary.<br> For those who already communicate confidently at<br> a basic level.</p>
+      </div>
+      <button class="card-btn">Start test <span>→</span></button>
+    </div>
+
+  </div>
+</div>

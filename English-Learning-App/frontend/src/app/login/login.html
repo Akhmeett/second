@@ -1,0 +1,46 @@
+<div class="login-page">
+  <canvas #bgCanvas class="bg-canvas"></canvas>
+
+  <div class="login-card">
+    <div class="card-header">
+      <div class="logo-icon">📖</div>
+      <span class="app-label">WordLearn</span>
+      <h1>Welcome back</h1>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="input-box">
+        <input type="email" placeholder="Email" required
+               [(ngModel)]="email" name="email">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password" required
+               [(ngModel)]="password" name="password">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <!-- ← Қате хабарлама — жаңа -->
+      <div class="error-message" *ngIf="errorMessage">
+        ⚠️ {{ errorMessage }}
+      </div>
+
+      <div class="remember">
+        <label>
+          <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe"> Remember me
+        </label>
+        <a routerLink="/forgot-password">Forgot password?</a>
+      </div>
+
+      <!-- ← isLoading қосылды -->
+      <button type="submit" class="button" [disabled]="isLoading">
+        {{ isLoading ? 'Кіруде...' : 'Login' }}
+      </button>
+
+      <div class="register-link">
+        <p>Don't have an account? <a routerLink="/register">Register</a></p>
+      </div>
+    </form>
+  </div>
+</div>

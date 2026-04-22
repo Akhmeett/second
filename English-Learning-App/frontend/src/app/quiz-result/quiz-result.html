@@ -1,0 +1,48 @@
+<div class="result-container">
+  <div class="result-card">
+
+    <div class="result-emoji">{{ emoji }}</div>
+    <h2 class="result-title">{{ message }}</h2>
+    <p class="result-sub">End</p>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <span class="stat-number correct">{{ correct }}</span>
+        <span class="stat-label">ДҰРЫС</span>
+      </div>
+      <div class="stat-box divider"></div>
+      <div class="stat-box">
+        <span class="stat-number wrong">{{ wrong }}</span>
+        <span class="stat-label">ҚАТЕ</span>
+      </div>
+      <div class="stat-box divider"></div>
+      <div class="stat-box">
+        <span class="stat-number total">{{ total }}</span>
+        <span class="stat-label">TOTAL</span>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-top">
+        <span class="progress-label">progress</span>
+        <span class="progress-percent" [class.high]="percent >= 80" [class.mid]="percent >= 50 && percent < 80" [class.low]="percent < 50">
+          {{ percent }}%
+        </span>
+      </div>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner"
+             [style.width.%]="percent"
+             [class.high]="percent >= 80"
+             [class.mid]="percent >= 50 && percent < 80"
+             [class.low]="percent < 50">
+        </div>
+      </div>
+    </div>
+
+    <div class="result-buttons">
+      <button class="btn-secondary" (click)="retry()"> Try again</button>
+      <button class="btn-primary" (click)="home()"> Main page</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,209 @@
+.home-container {
+    padding: 32px 35px;
+    background: #1a3a5c;
+    color: white;
+}
+
+.welcome-banner {
+    background-color: #1e4470;
+    border-radius: 15px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+}
+
+.welcome-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 6px 0;
+}
+
+.welcome-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+.streak-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(245, 166, 35, 0.15);
+    border: 1px solid rgba(245, 166, 35, 0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+}
+
+.streak-icon { font-size: 20px; }
+
+.streak-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f5a623;
+}
+
+
+.daily-goal {
+    background: #245080;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goal-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.goal-count {
+    font-size: 13px;
+    color: #00c8ff;
+    font-weight: 600;
+}
+
+.goal-bar-outer {
+    background: #1e4470;
+    border-radius: 4px;
+    height: 8px;
+}
+
+.goal-bar-inner {
+    background: #00c8ff;
+    height: 8px;
+    border-radius: 4px;
+    transition: width 0.3s;
+}
+
+
+
+
+.stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.section-card {
+    background: #245080;
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.word-item {
+    background: #1e4470;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.2s;
+}
+
+.word-item:hover { border-color: #00c8ff; }
+
+.word-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.word-english {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.word-kazakh {
+    font-size: 13px;
+    color: #00c8ff;
+}
+
+.word-level {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00c8ff;
+    background: rgba(0, 200, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
+.quiz-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quiz-item {
+    background: #1e4470;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.2s;
+}
+
+.quiz-item:hover { border-color: #00c8ff; }
+
+.quiz-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quiz-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.quiz-date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.quiz-score {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.quiz-score.score-green  { color: #22c55e; background: rgba(34, 197, 94, 0.15); }
+.quiz-score.score-yellow { color: #f5a623; background: rgba(245, 166, 35, 0.15); }
+.quiz-score.score-orange { color: #f5a623; background: rgba(245, 166, 35, 0.15); }

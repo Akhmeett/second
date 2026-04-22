@@ -1,0 +1,214 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #0e1e3a;
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.result-container::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(59,96,168,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.result-card {
+  background: #132040;
+  border: 1px solid #1c3057;
+  border-radius: 22px;
+  padding: 40px 44px;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100,150,255,0.3), transparent);
+}
+
+.result-emoji {
+  font-size: 56px;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.result-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #dce8ff;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.3px;
+}
+
+.result-sub {
+  font-size: 14px;
+  color: #3d5a82;
+  margin: -20px 0 0;
+  text-align: center;
+}
+
+.stats-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: #0c1830;
+  border: 1px solid #1c3057;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 22px 12px;
+}
+
+.stat-box.divider {
+  flex: 0;
+  width: 1px;
+  background: #1c3057;
+  padding: 0;
+}
+
+.stat-number {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-number.correct { color: #4ade80; }
+.stat-number.wrong   { color: #f87171; }
+.stat-number.total   { color: #7aaaff; }
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #2d4a70;
+  font-weight: 600;
+}
+
+.progress-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: #3d5a82;
+  letter-spacing: 0.5px;
+}
+
+.progress-percent {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.progress-percent.high { color: #4ade80; }
+.progress-percent.mid  { color: #7aaaff; }
+.progress-percent.low  { color: #f87171; }
+
+.progress-bar-outer {
+  width: 100%;
+  height: 6px;
+  background: #0c1830;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid #1c3057;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar-inner.high { background: linear-gradient(90deg, #16a34a, #4ade80); }
+.progress-bar-inner.mid  { background: linear-gradient(90deg, #2d5aaa, #7aaaff); }
+.progress-bar-inner.low  { background: linear-gradient(90deg, #dc2626, #f87171); }
+
+.result-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 15px 20px;
+  background: #1a3a5c;
+  border: 1px solid #1c3057;
+  border-radius: 14px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+}
+
+.btn-secondary:hover {
+  background: rgba(40,70,140,0.4);
+  border-color: #2d5aaa;
+  color: #fff;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 15px 20px;
+  background: #1a3a5c;
+  border: 1px solid #1c3057;
+  border-radius: 14px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+  
+  
+}
+
+.btn-primary:hover {
+  background: rgba(40,70,160,0.4);
+  border-color: #4070cc;
+  color: #fff;
+}

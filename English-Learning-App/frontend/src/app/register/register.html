@@ -1,0 +1,49 @@
+<div class="login-page">
+  <canvas #bgCanvas class="bg-canvas"></canvas>
+
+  <div class="login-card">
+    <div class="card-header">
+      <div class="logo-icon">📖</div>
+      <span class="app-label">WordLearn</span>
+      <h1>Create account</h1>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #regForm="ngForm">
+
+      <div class="input-box">
+        <input type="text" placeholder="Username" required
+               [(ngModel)]="username" name="username">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email" placeholder="Email" required
+               [(ngModel)]="email" name="email">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password" required
+               [(ngModel)]="password" name="password">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Confirm Password" required
+               [(ngModel)]="confirmPassword" name="confirmPassword">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">⚠️ {{ errorMessage }}</div>
+      <div class="success-message" *ngIf="successMessage">✅ {{ successMessage }}</div>
+
+      <button type="submit" class="button" [disabled]="isLoading">
+        {{ isLoading ? 'Тіркелуде...' : 'Register' }}
+      </button>
+
+      <div class="register-link">
+        <p>Already have an account? <a routerLink="/">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="main-div">
+  @if (loading) {
+    <div class="loading">Загрузка...</div>
+  }
+
+  @if (!loading && questions.length > 0) {
+    <div class="quiz-header">
+      <h1>Quiz</h1>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+      <span class="progress-text">{{ currentIndex + 1 }}/{{ questions.length }}</span>
+    </div>
+
+    <div class="quiz-stats">
+      <div>
+        <p class="correct-value">{{ correct }}</p>
+        <p class="text">Дұрыс</p>
+      </div>
+      <div>
+        <p class="wrong-value">{{ wrong }}</p>
+        <p class="text">Қате</p>
+      </div>
+      <div>
+        <p class="left-value">{{ left }}</p>
+        <p class="text">Қалды</p>
+      </div>
+    </div>
+
+    <div class="question-div">
+      <p class="question-label">{{ currentIndex + 1 }}-question • {{ level }}</p>
+      <p class="question-text">Translate this word</p>
+      <p class="question-word">"{{ current.word }}"</p>
+    </div>
+
+    <div class="answers-div">
+      <button
+        *ngFor="let option of current.options"
+        [class]="getClass(option)"
+        (click)="selectAnswer(option)">
+        {{ option }}
+      </button>
+    </div>
+
+    <div class="quiz-actions">
+      <button class="skip-btn" (click)="skip()">Skip</button>
+      <button class="next-btn" (click)="next()" [disabled]="!answered">Next →</button>
+    </div>
+  }
+</div>

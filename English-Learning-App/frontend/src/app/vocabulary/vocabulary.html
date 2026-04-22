@@ -1,0 +1,119 @@
+<div class="main-div">
+
+    <div class="success-toast" *ngIf="showSuccess">
+        ✓ Сөз сәтті қосылды!
+    </div>
+
+    <div class="vocab-header">
+        <h1>Vocabulary</h1>
+        <input type="text" 
+               placeholder="Сөзді іздеу..." 
+               class="search-input"
+               [(ngModel)]="searchText">
+        <button class="add-word-btn" (click)="openModal()">+ Сөз қосу</button>
+    </div>
+
+    <div class="filter-div">
+        <button class="filter-btn" 
+                [class.active]="activeFilter === 'All'"
+                (click)="setFilter('All')">All words</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'new'"
+                (click)="setFilter('new')">New</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'reviewing'"
+                (click)="setFilter('reviewing')">Reviewing</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'learned'"
+                (click)="setFilter('learned')">Learned</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'A1'"
+                (click)="setFilter('A1')">A1</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'A2'"
+                (click)="setFilter('A2')">A2</button>
+        <button class="filter-btn"
+                [class.active]="activeFilter === 'B1'"
+                (click)="setFilter('B1')">B1</button>
+    </div>
+
+    <div class="statistics-div">
+        <div>
+            <p class="first-value">{{ words.length }}</p>
+            <p class="text">Барлық сөз</p>
+        </div>
+        <div>
+            <p class="second-Value">{{ learnedCount }}</p>
+            <p class="text">Үйренілген</p>
+        </div>
+        <div>
+            <p class="third-value">{{ reviewingCount }}</p>
+            <p class="text">Қайталайтын</p>
+        </div>
+    </div>
+
+    <div class="words-div">
+        <div class="word-card" *ngFor="let word of filteredWords">
+            <span class="status-badge"
+                  [class.status-new]="word.status === 'new'"
+                  [class.status-reviewing]="word.status === 'reviewing'"
+                  [class.status-learned]="word.status === 'learned'">
+                {{ word.status || 'new' }}
+            </span>
+            <p class="word-title">{{ word.english }}</p>
+            <p class="word-translation">{{ word.kazakh }}</p>
+            <p class="word-example">{{ word.example }}</p>
+            <div class="card-actions">
+                <button class="edit-btn" (click)="openEditModal(word)">Edit</button>
+                <button class="delete-btn" (click)="deleteWord(word.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <h2>{{ isEditing ? 'Сөзді өзгерту' : 'Сөз қосу' }}</h2>
+            <button class="modal-close" (click)="closeModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <label>Ағылшын сөзі</label>
+                <input type="text" placeholder="Perseverance" [(ngModel)]="newWord.english">
+            </div>
+            <div class="input-group">
+                <label>Қазақша аудармасы</label>
+                <input type="text" placeholder="Табандылық" [(ngModel)]="newWord.kazakh">
+            </div>
+            <div class="input-group">
+                <label>Мысал сөйлем</label>
+                <textarea placeholder="Her perseverance paid off." [(ngModel)]="newWord.example"></textarea>
+            </div>
+            <div class="input-group">
+                <label>Деңгей</label>
+                <div class="level-select">
+                    <button class="level-btn" [class.active]="selectedLevel === 'A1'" (click)="selectLevel('A1')">A1</button>
+                    <button class="level-btn" [class.active]="selectedLevel === 'A2'" (click)="selectLevel('A2')">A2</button>
+                    <button class="level-btn" [class.active]="selectedLevel === 'B1'" (click)="selectLevel('B1')">B1</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="cancel-btn" (click)="closeModal()">Болдырмау</button>
+            <button class="submit-btn" (click)="isEditing ? updateWord() : addWord()">
+                {{ isEditing ? 'Сақтау' : 'Қосу' }}
+            </button>
+        </div>
+    </div>
+
+</div>
+<div class="confirm-overlay" *ngIf="showConfirm" (click)="cancelDelete()">
+    <div class="confirm-card" (click)="$event.stopPropagation()">
+        <p>Сөзді өшіру керек пе?</p>
+        <div class="confirm-actions">
+            <button class="cancel-btn" (click)="cancelDelete()">Болдырмау</button>
+            <button class="delete-confirm-btn" (click)="confirmDelete()">Өшіру</button>
+        </div>
+    </div>
+</div>

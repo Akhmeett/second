@@ -1,0 +1,56 @@
+<div class="home-container">
+
+  <div class="welcome-banner">
+    <h1 class="welcome-title">Қош келдіңіз, {{ userName }}!</h1>
+    <p class="welcome-subtitle">Бүгін де үйренуді жалғастырыңыз</p>
+  </div>
+
+  <div class="streak-banner">
+    <span class="streak-icon">🔥</span>
+    <span class="streak-text">5 күн қатарынан үйренді!</span>
+  </div>
+
+  <div class="daily-goal">
+    <div class="goal-header">
+        <span class="goal-title">Бүгінгі мақсат</span>
+        <span class="goal-count">8/10 сөз</span>
+    </div>
+    <div class="goal-bar-outer">
+        <div class="goal-bar-inner" style="width: 80%"></div>
+    </div>
+</div>
+
+
+  <div class="bottom-grid">
+
+    <div class="section-card">
+      <h2 class="section-title">Бүгін үйренетін сөздер</h2>
+      <div class="word-list">
+        <div class="word-item" *ngFor="let word of todayWords">
+          <div class="word-info">
+            <span class="word-english">{{ word.english }}</span>
+            <span class="word-kazakh">{{ word.kazakh }}</span>
+          </div>
+          <span class="word-level">{{ word.level }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2 class="section-title">Соңғы quiz нәтижелері</h2>
+      <div class="quiz-list">
+        <div class="quiz-item" *ngFor="let quiz of quizResults">
+          <div class="quiz-info">
+            <span class="quiz-title">{{ quiz.title }}</span>
+            <span class="quiz-date">{{ quiz.date }}</span>
+          </div>
+          <span class="quiz-score" [ngClass]="getScoreClass(quiz.score, quiz.total)">
+            {{ quiz.score }}/{{ quiz.total }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
